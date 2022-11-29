@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getInterventions } from '../redux/actions';
 
 function InterventionsList() {
+  const interventions = useSelector((state) => state.inters);
+  console.log(interventions);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getInterventions());
+  }, []);
   return (
-    <div className="" style={styles.container}>
-      <p style={styles.placeholder}>Implémente le tableau ici</p>
+    <div style={styles.container}>
+      {interventions && interventions.map((item) => <p style={styles.placeholder}>{item.title}</p>)}
     </div>
   );
 }
@@ -17,7 +26,7 @@ const styles = {
     width: '100%',
     border: '3px dashed #f1f1f1',
     borderRadius: '15px',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   placeholder: {
     fontSize: '1.5em',
