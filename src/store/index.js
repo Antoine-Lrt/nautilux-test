@@ -6,9 +6,9 @@ import rootReducer from '../reducers';
 export const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore(initialState = {}) {
-  return createStore(
-    rootReducer(history),
-    initialState,
-    compose(applyMiddleware(sagaMiddleware))
-  );
+    return createStore(
+        rootReducer(window.history),
+        initialState,
+        compose(applyMiddleware(sagaMiddleware))
+    );
 }
