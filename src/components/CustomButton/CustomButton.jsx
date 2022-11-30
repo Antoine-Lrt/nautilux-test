@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import './style.scss';
 
-function CustomButton({ text, type, route }) {
+function CustomButton({ text, type, route, btnType }) {
   return (
-    <Link to={`${route}`}>
-      <button className={`button button--${type}`}>{text}</button>
-    </Link>
+    <button type={btnType} className={`button button--${type}`}>
+      {text}
+    </button>
   );
 }
 

@@ -1,0 +1,47 @@
+.form {
+    display: flex;
+    justify-content: center;
+
+    &__element{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        &__btn{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        &__input{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            &__title {
+                font-size: 1em;
+                font-weight: bold;
+            }
+
+            &__item{
+                font-size: .9em;
+                border-radius: 5px;
+                border: 1px solid #909090;
+                padding: .5rem;
+                text-transform: capitalize;
+                color: black;
+                &::placeholder {
+                    font-style: italic;
+                    text-transform: unset;
+                }
+                
+            }
+
+            &__error{
+                font-size: .8em;
+                font-weight: bold;
+                font-style: italic;
+                color: red;
+            }
+        }
+    }
+}
