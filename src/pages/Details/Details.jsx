@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import './style.scss';
 
@@ -15,7 +15,9 @@ function Details({ match }) {
     <div className="details">
       <div className="details__element">
         <div className="details__element__btn">
-          <CustomButton text="Retour" route={'/'} type="secondary" />
+          <Link to="/">
+            <CustomButton text="Retour" route={'/'} type="secondary" />
+          </Link>
         </div>
         <div className="details__element__card">
           <h3 className="details__element__card__title">Nid de poule</h3>
