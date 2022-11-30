@@ -21,12 +21,7 @@ export function* getInterventions() {
   yield takeLatest(types.GET_INTERVENTIONS, getInterventionsAsync);
 }
 
-const intersSagas = [
-  fork(getInterventions)
-  // fork(onCreateUser),
-  // fork(onDeleteUserRequest),
-  // fork(onUpdateUser),
-];
+const intersSagas = [fork(getInterventions)];
 
 export default function* rootSaga() {
   yield all([...intersSagas]);

@@ -1,22 +1,32 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import { createIntervention } from '../../redux/actions';
+
 import './style.scss';
 
 function Form() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
-    reset,
     watch,
     formState: { errors }
   } = useForm();
+
   const onSubmit = (data, e) => {
+    e.preventDefault();
     try {
+      dispatch(createIntervention(data));
+
       console.log(data);
       alert('Votre intervention a été ajoutée !');
       e.target.reset();
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -34,83 +44,87 @@ function Form() {
         </section>
 
         <section className="form__element__input">
-          <label htmlFor="interventionName" className="form__element__input__title">
+          <label htmlFor="name" className="form__element__input__title">
             Nom de l'intervention
           </label>
           <input
             className="form__element__input__item"
             placeholder="Nom de l'intervention"
-            {...register('interventionName', { required: true })}
-            aria-invalid={errors.interventionName ? 'true' : 'false'}
+            {...register('name', { required: true })}
+            aria-invalid={errors.name ? 'true' : 'false'}
           />
-          {errors.interventionName?.type === 'required' && (
+          {errors.name?.type === 'required' && (
             <p className="form__element__input__error" role="alert">
-              Veuillez saisir le nom de l'intervention
+              Veuillez saisir le nom de l'intervention !
             </p>
           )}
         </section>
         <section className="form__element__input">
-          <label htmlFor="interventionDescription" className="form__element__input__title">
+          <label htmlFor="description" className="form__element__input__title">
             Description
           </label>
           <textarea
             className="form__element__input__item"
             placeholder="Saisissez la description de l'intervention"
-            {...register('interventionDescription', { required: true })}
-            aria-invalid={errors.interventionDescription ? 'true' : 'false'}
+            {...register('description', { required: true })}
+            aria-invalid={errors.description ? 'true' : 'false'}
           />
-          {errors.interventionDescription?.type === 'required' && (
+          {errors.description?.type === 'required' && (
             <p className="form__element__input__error" role="alert">
-              Veuillez décrire l'intervention
+              Veuillez décrire l'intervention !
             </p>
           )}
         </section>
 
         <section className="form__element__input">
-          <label htmlFor="applicantName" className="form__element__input__title">
+          <label htmlFor="sender_name" className="form__element__input__title">
             Demendeur
           </label>
           <input
             className="form__element__input__item"
             placeholder="Prénom Nom"
-            {...register('applicantName', { required: true })}
-            aria-invalid={errors.applicantName ? 'true' : 'false'}
+            {...register('sender_name', { required: true })}
+            aria-invalid={errors.sender_name ? 'true' : 'false'}
           />
-          {errors.applicantName?.type === 'required' && (
+          {errors.sender_name?.type === 'required' && (
             <p className="form__element__input__error" role="alert">
-              Veuillez saisir votre nom
+              Veuillez saisir votre nom !
             </p>
           )}
         </section>
         <section className="form__element__input">
-          <label htmlFor="applicantMail" className="form__element__input__title">
+          <label htmlFor="sender_mail" className="form__element__input__title">
             email
           </label>
           <input
             type="email"
             className="form__element__input__item"
             placeholder="email@domaine.fr"
-            {...register('applicantMail', { required: true })}
-            aria-invalid={errors.applicantMail ? 'true' : 'false'}
+            {...register('sender_mail', { required: true })}
+            aria-invalid={errors.sender_mail ? 'true' : 'false'}
           />
-          {errors.applicantMail?.type === 'required' && (
+          {errors.sender_mail?.type === 'required' && (
             <p className="form__element__input__error" role="alert">
-              Veuillez saisir une adresse email
+              Veuillez saisir une adresse email !
             </p>
           )}
         </section>
         <section className="form__element__input">
-          <label htmlFor="applicantPhone" className="form__element__input__title">
+          <label htmlFor="sender_phone" className="form__element__input__title">
             Téléphone
           </label>
           <input
             className="form__element__input__item"
             placeholder="00 00 00 00 00"
-            {...register('applicantPhone')}
+            {...register('sender_phone', { minLength: 10, maxLength: 10 })}
+            aria-invalid={errors.sender_phone ? 'true' : 'false'}
           />
+          {errors.sender_phone && (
+            <p className="form__element__input__error" role="alert">
+              Veuillez saisir un numéro de téléphone valide !
+            </p>
+          )}
         </section>
-
-        {errors.interventionName && <p role="alert">{errors?.message}</p>}
       </form>
     </div>
   );

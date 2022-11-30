@@ -2,7 +2,6 @@ import * as types from '../actions/types';
 
 const initialState = {
   inters: [],
-  inter: {},
   loading: false
 };
 
@@ -18,6 +17,12 @@ const intersReducer = (state = initialState, action) => {
         ...state,
         inters: action.payload
       };
+    case types.CREATE_INTERVENTIONS:
+      return {
+        ...state,
+        inters: [action.payload, ...state.inters]
+      };
+
     case types.GET_INTERVENTIONS_ERROR:
       return {
         ...state,
