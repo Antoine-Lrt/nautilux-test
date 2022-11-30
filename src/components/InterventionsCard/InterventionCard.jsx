@@ -1,31 +1,29 @@
 import React from 'react';
 import './style.scss';
 
-function InterventionCard({ count }) {
+function InterventionCard({ name, createAt, details, senderName, senderMail, senderPhone }) {
   return (
     <div className="card">
-      <section className="card__date">
+      <div className="card__date">
         <div className="card__date__container">
           <span>12</span>
           <span>Avr</span>
         </div>
-      </section>
-      <section className="card__name">
-        <span>Nid de poules</span>
-        <span>date</span>
-      </section>
-      <section className="card__details">
-        <span>le nide de poudsqfsqdfsqd sdfqsldkjfklqsjdflkj lqskdjflksqjdflkj lqksdjf</span>
-        <span>Avr</span>
-      </section>
-      <section className="card__user">
-        <span>Antoine</span>
-        <span>Laurent</span>
-      </section>
-      <section className="card__contact">
-        <span>antoine@mail.com</span>
-        <span>0000000</span>
-      </section>
+      </div>
+      <div className="card__name">
+        <span>{name}</span>
+        <span>{createAt}</span>
+      </div>
+      <div className="card__details">
+        <p>{details}</p>
+      </div>
+      <div className="card__user">
+        <span>{senderName}</span>
+      </div>
+      <div className="card__contact">
+        <span>{senderMail}</span>
+        <span>{senderPhone}</span>
+      </div>
     </div>
   );
 }

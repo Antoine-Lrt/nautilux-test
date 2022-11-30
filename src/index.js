@@ -6,6 +6,7 @@ import store from './redux/store/index';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import Layout from './components/Layout/Layout';
 
 ReactDOM.render(
   <React.StrictMode>

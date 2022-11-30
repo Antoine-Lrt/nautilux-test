@@ -1,0 +1,17 @@
+.home{
+
+    &__action{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: row;
+        margin-bottom: 1rem;
+        
+        &__details{
+            font-size: .8em;
+            font-weight: bold;
+            color: gray;
+        }
+    }
+    
+}
