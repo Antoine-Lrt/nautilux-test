@@ -1,19 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-import Home from './pages/Home';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import Router from './routes/Router';
+import { getInterventions } from './redux/actions';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getInterventions());
+  }, []);
   return (
-    <Router>
-      <div className="container">
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div className="container">
+      <Router />
+    </div>
   );
 }
 
