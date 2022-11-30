@@ -1,26 +1,35 @@
 import React from 'react';
 import './style.scss';
 
-function InterventionCard({ name, createAt, details, senderName, senderMail, senderPhone }) {
+function InterventionCard({
+  name,
+  createAt,
+  details,
+  senderName,
+  senderMail,
+  senderPhone,
+  day,
+  month
+}) {
   return (
-    <div className="card">
-      <div className="card__date">
-        <div className="card__date__container">
-          <span>12</span>
-          <span>Avr</span>
+    <div className="interCard">
+      <div className="interCard__date">
+        <div className="interCard__date__container">
+          <span>{day}</span>
+          <span>{month}</span>
         </div>
       </div>
-      <div className="card__name">
-        <span>{name}</span>
-        <span>{createAt}</span>
+      <div className="interCard__name">
+        <span className="interCard__name__title">{name}</span>
+        <span className="interCard__name__date">{createAt}</span>
       </div>
-      <div className="card__details">
-        <p>{details}</p>
+      <div className="interCard__details">
+        <span>{details}</span>
       </div>
-      <div className="card__user">
+      <div className="interCard__user">
         <span>{senderName}</span>
       </div>
-      <div className="card__contact">
+      <div className="interCard__contact">
         <span>{senderMail}</span>
         <span>{senderPhone}</span>
       </div>

@@ -15,18 +15,6 @@ function Home() {
         <span className="home__action__details">{`${interventions.length} interventions`}</span>
       </div>
       <InterventionsList />
-      {/* {interventions &&
-        interventions.map((inter) => (
-          <InterventionCard
-            key={inter.id}
-            name={inter.name}
-            createAt={inter.created_at}
-            details={inter.description}
-            senderName={inter.sender_name}
-            senderMail={inter.sender_email}
-            senderPhone={inter.sender_phone}
-          />
-        ))} */}
     </div>
   );
 }

@@ -1,33 +1,82 @@
-.card {
+.interCard {
  
+    background-color: transparent ;
+    border-bottom: 1px solid #ECECEC;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
  
 
     &__date{
+
+        width: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: .8em;
       
  
         
         &__container {
-     
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px 5px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+            line-height: .9rem;
+            color: white;
+            text-transform: uppercase;
             
         }
     }
 
     &__name{
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        
+        &__title{
+            font-weight: bold;
+            font-size: .8em;
+        }
+
+        &__date{
+            color: #909090;
+            font-size: .7em;
+            
+        }
        
-     
     }
 
     &__details{
-       
-        
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: .8em;
+    
     }
 
     &__user{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: .8em;
 
     }
 
     &__contact{
-    
-        
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        font-size: .8em;        
     }
 }
