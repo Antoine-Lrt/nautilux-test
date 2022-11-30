@@ -4,9 +4,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import InterventionCard from '../InterventionsCard/InterventionCard';
+import { RiArrowUpDownLine } from 'react-icons/ri';
 import './style.scss';
 
-function InterventionsList() {
+function InterventionsList({}) {
   const interventions = useSelector((state) => state.inters);
   console.log(interventions);
 
@@ -28,19 +29,37 @@ function InterventionsList() {
     return monthName;
   }
 
+  function sortList() {
+    interventions.sort((a, b) => b.created_at.localeCompare(a.created_at));
+    console.log('my sort array', interventions);
+  }
+
   return (
     <div className="list">
       <section className="list__header">
-        <span className="list__header__date">Date</span>
-        <span className="list__header__name">Nom</span>
-        <span className="list__header__details">Description</span>
-        <span className="list__header__user">Demendeur</span>
-        <span className="list__header__contact">Coordonnées</span>
+        <div onClick={sortList} className="list__header__date">
+          <span>Date</span>
+          <span>
+            <RiArrowUpDownLine size={15} />
+          </span>
+        </div>
+        <div className="list__header__name">
+          <span>Nom</span>
+        </div>
+        <div className="list__header__details">
+          <span>Description</span>
+        </div>
+        <div className="list__header__user">
+          <span>Demendeur</span>
+        </div>
+        <span className="list__header__contact">
+          <span>Coordonnées</span>
+        </span>
       </section>
       <section className="list__element">
         {interventions &&
           interventions.map((inter) => (
-            <Link style={{ textDecoration: 'none' }} to="/details">
+            <Link style={{ textDecoration: 'none' }} to={`details/${inter.id}`}>
               <InterventionCard
                 day={getDay(inter.created_at)}
                 month={getMonth(inter.created_at)}

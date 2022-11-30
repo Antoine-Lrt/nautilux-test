@@ -8,8 +8,8 @@ const Router = () => {
     <Routes>
       <Route element={<PageLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/details" element={<Details />} />
-        <Route path="/form" element={<Form />} />
+        <Route path="/details/:id" element={<Details />} />
+        <Route path="/formulaire" element={<Form />} />
       </Route>
     </Routes>
   );

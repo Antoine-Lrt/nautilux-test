@@ -6,10 +6,11 @@ import './style.scss';
 
 function Home() {
   const interventions = useSelector((state) => state.inters);
+  console.log('intervention', interventions);
   return (
     <div className="home">
       <div className="home__action">
-        <CustomButton route={'form'} text={'Créer une intervention'} type="primary" />
+        <CustomButton route={'/formulaire'} text={'Créer une intervention'} type="primary" />
         <span className="home__action__details">{`${interventions.length} interventions`}</span>
       </div>
       <InterventionsList />
