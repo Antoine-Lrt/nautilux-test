@@ -4,7 +4,7 @@ import './style.scss';
 
 function CustomButton({ text, type, route }) {
   return (
-    <Link to={`/${route}`}>
+    <Link to={`${route}`}>
       <button className={`button button--${type}`}>{text}</button>
     </Link>
   );

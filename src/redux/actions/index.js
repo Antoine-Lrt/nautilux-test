@@ -13,3 +13,5 @@ export const getInterventionsError = (error) => ({
   type: types.GET_INTERVENTIONS_ERROR,
   payload: error
 });
+
+export const sortInterventions = () => ({});
