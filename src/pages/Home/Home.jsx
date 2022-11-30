@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import InterventionsList from '../components/containers/InterventionsList';
-import CustomButton from '../components/CustomButton/CustomButton';
-import InterventionCard from '../components/InterventionsCard/InterventionCard';
+import InterventionsList from '../../components/containers/InterventionsList';
+import CustomButton from '../../components/CustomButton/CustomButton';
 import './style.scss';
 
 function Home() {
@@ -10,8 +9,7 @@ function Home() {
   return (
     <div className="home">
       <div className="home__action">
-        <CustomButton text={'Créer une intervention'} type="primary" />
-
+        <CustomButton route={'form'} text={'Créer une intervention'} type="primary" />
         <span className="home__action__details">{`${interventions.length} interventions`}</span>
       </div>
       <InterventionsList />

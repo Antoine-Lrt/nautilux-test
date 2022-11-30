@@ -2,6 +2,7 @@ import moment from 'moment';
 import 'moment/locale/fr';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import InterventionCard from '../InterventionsCard/InterventionCard';
 import './style.scss';
 
@@ -39,17 +40,19 @@ function InterventionsList() {
       <section className="list__element">
         {interventions &&
           interventions.map((inter) => (
-            <InterventionCard
-              day={getDay(inter.created_at)}
-              month={getMonth(inter.created_at)}
-              key={inter.id}
-              name={inter.name}
-              createAt={formatDate(inter.created_at)}
-              details={inter.description}
-              senderName={inter.sender_name}
-              senderMail={inter.sender_email}
-              senderPhone={inter.sender_phone}
-            />
+            <Link style={{ textDecoration: 'none' }} to="/details">
+              <InterventionCard
+                day={getDay(inter.created_at)}
+                month={getMonth(inter.created_at)}
+                key={inter.id}
+                name={inter.name}
+                createAt={formatDate(inter.created_at)}
+                details={inter.description}
+                senderName={inter.sender_name}
+                senderMail={inter.sender_email}
+                senderPhone={inter.sender_phone}
+              />
+            </Link>
           ))}
       </section>
     </div>
