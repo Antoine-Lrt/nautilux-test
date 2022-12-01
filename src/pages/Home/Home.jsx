@@ -6,7 +6,7 @@ import CustomButton from '../../components/CustomButton/CustomButton';
 import './style.scss';
 
 function Home() {
-  const interventions = useSelector((state) => state.inters);
+  const interventions = useSelector((state) => state);
   console.log('intervention', interventions);
   return (
     <div className="home">
@@ -19,7 +19,7 @@ function Home() {
             type="primary"
           />
         </Link>
-        <span className="home__action__details">{`${interventions.length} interventions`}</span>
+        {/* <span className="home__action__details">{`${inters.length} interventions`}</span> */}
       </div>
       <InterventionsList />
     </div>
