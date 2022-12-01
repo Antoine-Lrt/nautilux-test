@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 import InterventionCard from '../InterventionsCard/InterventionCard';
 import { RiArrowUpDownLine } from 'react-icons/ri';
 import './style.scss';
+import { sortInter, sortInterAsc, sortInterDesc } from '../../redux/actions';
 
 function InterventionsList({}) {
   const interventions = useSelector((state) => state.inters);
+  const [sort, setSort] = useState('asc');
+
+  const dispatch = useDispatch();
 
   function formatDate(date) {
     const formatedDate = moment(date).local('fr').format('L HH:mm');
@@ -28,10 +32,21 @@ function InterventionsList({}) {
     return monthName;
   }
 
+  function onSort() {
+    if (sort === 'asc') {
+      dispatch(sortInterAsc(interventions));
+      setSort('desc');
+    }
+    if (sort === 'desc') {
+      dispatch(sortInterDesc(interventions));
+      setSort('asc');
+    }
+  }
+
   return (
     <table className="list">
       <tr className="list__header">
-        <th onClick={''} className="list__header__date">
+        <th onClick={onSort} className="list__header__date">
           <span>Date</span>
           <span>
             <RiArrowUpDownLine size={15} />

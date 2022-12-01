@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { createIntervention } from '../../redux/actions';
@@ -19,16 +19,13 @@ function Form() {
     formState: { errors }
   } = useForm();
 
-  // const interAmount = useSelector((state) => state.);
-
   const formatDate = moment().format('YYYY-MM-DD HH:ss:mm');
 
-  const onSubmit = (data, e) => {
+  function onSubmit(data, e) {
     e.preventDefault();
     try {
       dispatch(
         createIntervention({
-          // id: interAmount + 1,
           created_at: formatDate,
           name: data.name,
           description: data.description,
@@ -44,7 +41,7 @@ function Form() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   console.log(watch('example'));
   return (
