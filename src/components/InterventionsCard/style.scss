@@ -7,10 +7,14 @@
     flex-direction: row;
     justify-content: space-between;
     color: black;
+    transition: ease-out, .2s;
     cursor: pointer;
-
+    &:hover {
+        background-color: #FFD500;
+        transition: ease-out, .2s;
+    }
     &:active {
-        color: #FFD500;
+        background-color: #e2bd00;
     }
     
  
