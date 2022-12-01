@@ -27,7 +27,6 @@ function Details() {
         </div>
         <div className="details__element__card">
           <h3 className="details__element__card__title">{interventions?.name}</h3>
-
           <section className="details__element__card__description">
             <h4 className="details__element__card__description__title">Description</h4>
             <p className="details__element__card__description__text">

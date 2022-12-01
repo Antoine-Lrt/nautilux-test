@@ -4,8 +4,7 @@
 
     &__element{
         width: 40%;
-
-
+       
         &__btn{
             margin-bottom: 2rem;
         }
@@ -19,11 +18,9 @@
             &__title{
                 font-size: 1.2em;
                 font-weight: bold;
-
             }
 
             &__description{
-
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -57,17 +54,7 @@
                     font-size: 1em;
                     font-weight: bold;
                 }
-
-                &__mail{
-                   
-                }
-             
-
-                &__phone{
-                    font-size: 1em;
-                }
             }
-
         }
     }
 }

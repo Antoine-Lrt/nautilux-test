@@ -6,32 +6,35 @@ import { Link } from 'react-router-dom';
 import InterventionCard from '../InterventionsCard/InterventionCard';
 import { RiArrowUpDownLine } from 'react-icons/ri';
 import './style.scss';
-import { sortInter, sortInterAsc, sortInterDesc } from '../../redux/actions';
+import { sortInterAsc, sortInterDesc } from '../../redux/actions';
 
 function InterventionsList({}) {
   const interventions = useSelector((state) => state.inters);
   const [sort, setSort] = useState('asc');
-
   const dispatch = useDispatch();
 
+  // FORMAT DATE
   function formatDate(date) {
     const formatedDate = moment(date).local('fr').format('L HH:mm');
     // console.log('formated date id', formatedDate);
     return formatedDate;
   }
 
+  // GET DATE DAY
   function getDay(date) {
     const getDay = moment(date).format('DD');
     // console.log('day', getDay);
     return getDay;
   }
 
+  // GET DATE MONTH
   function getMonth(date) {
     const monthName = moment(date).locale('fr').format('MMM');
     // console.log('month', monthName);
     return monthName;
   }
 
+  // SORT DATA BY CREATION DATE
   function onSort() {
     if (sort === 'asc') {
       dispatch(sortInterAsc(interventions));

@@ -1,7 +1,7 @@
 import { takeLatest, all, call, put, fork, delay } from 'redux-saga/effects';
 
 import { getInterventionsSuccess, getInterventionsError } from '../actions/index';
-import { fetchIntersApi } from './api';
+import { fetchIntersApi } from './apiRequest';
 
 import * as types from '../actions/types';
 

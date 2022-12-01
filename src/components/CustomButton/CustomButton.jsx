@@ -1,8 +1,7 @@
 import React from 'react';
-
 import './style.scss';
 
-function CustomButton({ text, type, route, btnType }) {
+function CustomButton({ text, type, btnType }) {
   return (
     <button type={btnType} className={`button button--${type}`}>
       {text}

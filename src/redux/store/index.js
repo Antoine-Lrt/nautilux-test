@@ -12,11 +12,3 @@ const store = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware), 
 sagaMiddleware.run(rootSaga);
 
 export default store;
-
-// export default function configureStore(initialState = {}) {
-//   return createStore(
-//     rootReducer(window.history),
-//     initialState,
-//     compose(applyMiddleware(sagaMiddleware), reduxDevTools)
-//   );
-// }

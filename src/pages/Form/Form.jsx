@@ -99,7 +99,7 @@ function Form() {
           />
           {errors.sender_name?.type === 'required' && (
             <p className="form__element__input__error" role="alert">
-              Veuillez saisir votre nom !
+              Veuillez saisir votre Nom et votre Prénom !
             </p>
           )}
         </section>
