@@ -2,24 +2,28 @@ import * as types from '../actions/types';
 import _ from 'lodash';
 
 const initialState = {
-  inters: []
+  inters: [],
+  loader: false
 };
 
 export const intersReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_INTERVENTIONS:
       return {
-        ...state
+        ...state,
+        loader: true
       };
     case types.GET_INTERVENTIONS_SUCCESS:
       return {
         ...state,
-        inters: action.payload
+        inters: action.payload,
+        loader: false
       };
     case types.GET_INTERVENTIONS_ERROR:
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
+        loader: false
       };
     case types.CREATE_INTERVENTIONS:
       return {

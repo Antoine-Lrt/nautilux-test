@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import intersReducer from './index';
+import { intersReducer } from './index';
 
 const rootReducer = combineReducers({
   inters: intersReducer
