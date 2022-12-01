@@ -30,8 +30,8 @@ function InterventionCard({
         <span>{senderName}</span>
       </td>
       <td className="interCard__contact">
-        <span>{senderMail}</span>
-        <span>{senderPhone}</span>
+        <span className="interCard__contact__mail">{senderMail}</span>
+        <span className="interCard__contact__phone">{senderPhone}</span>
       </td>
     </tr>
   );
