@@ -38,16 +38,21 @@
         }
     
         &__user{
-            width: 20%;
+            width: 15%;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
     
         &__contact{
-            width: 15%;
+            width: 20%;
             display: flex;
             flex-direction: column;
+        }
+
+        @media screen and (max-width: 1173px){
+      
+            font-size: .7em;     
         }
     }
 }

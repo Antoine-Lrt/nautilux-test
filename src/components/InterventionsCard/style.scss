@@ -30,7 +30,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 90%;
+            width: 100px;
             padding: 5px;
             border-radius: 10px;
             font-weight: bold;
@@ -38,9 +38,14 @@
             line-height: .9rem;
             color: white;
             text-transform: uppercase;
-           
-               
-        
+            @media screen and (max-width: 1173px){
+      
+                font-size: 1.3em;     
+            }
+            @media screen and (max-width: 992px){
+      
+                font-size: 1.2em;     
+            }
             
         }
     }
@@ -71,22 +76,33 @@
         flex-direction: column;
         justify-content: center;
         font-size: .8em;
-    
     }
 
     &__user{
-        width: 20%;
+        width: 15%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         font-size: .8em;
-
     }
 
     &__contact{
-        width: 15%;
+        width: 20%;
         display: flex;
         flex-direction: column;
-        font-size: .8em;        
+        font-size: .8em;  
+    }
+    @media screen and (max-width: 1173px){
+      
+        font-size: .9em;     
+    }
+
+    @media screen and (max-width: 992px){
+      
+        font-size: .9em;     
+    }
+
+    @media screen and (max-width: 767px){
+        font-size: .8em;     
     }
 }
