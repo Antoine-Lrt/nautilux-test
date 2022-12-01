@@ -1,6 +1,6 @@
 import moment from 'moment';
 import 'moment/locale/fr';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import InterventionCard from '../InterventionsCard/InterventionCard';
@@ -10,9 +10,10 @@ import './style.scss';
 function InterventionsList({}) {
   const interventions = useSelector((state) => state.inters);
   console.log(interventions);
+  const [sortValue, setSortValue] = useState('');
 
   function formatDate(date) {
-    const formatedDate = moment(date).local('fr').format('l HH:mm');
+    const formatedDate = moment(date).local('fr').format('L HH:mm');
     console.log('formated date id', formatedDate);
     return formatedDate;
   }
@@ -29,34 +30,29 @@ function InterventionsList({}) {
     return monthName;
   }
 
-  function sortList() {
-    interventions.sort((a, b) => b.created_at.localeCompare(a.created_at));
-    console.log('my sort array', interventions);
-  }
-
   return (
-    <div className="list">
-      <section className="list__header">
-        <div onClick={sortList} className="list__header__date">
+    <table className="list">
+      <tr className="list__header">
+        <th onClick={'onSortList'} className="list__header__date">
           <span>Date</span>
           <span>
             <RiArrowUpDownLine size={15} />
           </span>
-        </div>
-        <div className="list__header__name">
+        </th>
+        <th className="list__header__name">
           <span>Nom</span>
-        </div>
-        <div className="list__header__details">
+        </th>
+        <th className="list__header__details">
           <span>Description</span>
-        </div>
-        <div className="list__header__user">
+        </th>
+        <th className="list__header__user">
           <span>Demendeur</span>
-        </div>
-        <span className="list__header__contact">
+        </th>
+        <th className="list__header__contact">
           <span>Coordonnées</span>
-        </span>
-      </section>
-      <section className="list__element">
+        </th>
+      </tr>
+      <tr className="list__element">
         {interventions &&
           interventions.map((inter) => (
             <Link style={{ textDecoration: 'none' }} to={`details/${inter.id}`}>
@@ -73,8 +69,8 @@ function InterventionsList({}) {
               />
             </Link>
           ))}
-      </section>
-    </div>
+      </tr>
+    </table>
   );
 }
 

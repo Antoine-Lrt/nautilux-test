@@ -1,6 +1,7 @@
 import React from 'react';
+import moment from 'moment';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { createIntervention } from '../../redux/actions';
@@ -18,12 +19,25 @@ function Form() {
     formState: { errors }
   } = useForm();
 
+  const interAmount = useSelector((state) => state.inters.length);
+
+  const formatDate = moment().format('YYYY-MM-DD HH:ss:mm');
+
   const onSubmit = (data, e) => {
     e.preventDefault();
     try {
-      dispatch(createIntervention(data));
-
-      console.log(data);
+      dispatch(
+        createIntervention({
+          id: interAmount + 1,
+          created_at: formatDate,
+          name: data.name,
+          description: data.description,
+          sender_name: data.sender_name,
+          sender_email: data.sender_email,
+          sender_phone: data.sender_phone
+        })
+      );
+      console.log('data length', data.length);
       alert('Votre intervention a été ajoutée !');
       e.target.reset();
       navigate('/');
