@@ -1,3 +1,4 @@
+import { get } from 'lodash';
 import * as types from './types';
 
 // Get Interventions
@@ -16,11 +17,19 @@ export const getInterventionsError = (error) => ({
   payload: error
 });
 
+// Sort
+
+export const sortInterventions = (sortDirection, sortKey) => {
+  return {
+    type: types.SORT_BY_DATE,
+    sortDirection,
+    sortKey
+  };
+};
+
 // Create New Intervention
 
 export const createIntervention = (inters) => ({
   type: types.CREATE_INTERVENTIONS,
   payload: inters
 });
-
-export const sortInterventions = () => ({});

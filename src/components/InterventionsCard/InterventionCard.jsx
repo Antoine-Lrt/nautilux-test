@@ -12,28 +12,28 @@ function InterventionCard({
   month
 }) {
   return (
-    <div className="interCard">
-      <div className="interCard__date">
+    <tr className="interCard">
+      <td className="interCard__date">
         <div className="interCard__date__container">
           <span>{day}</span>
           <span>{month}</span>
         </div>
-      </div>
-      <div className="interCard__name">
+      </td>
+      <td className="interCard__name">
         <span className="interCard__name__title">{name}</span>
         <span className="interCard__name__date">{createAt}</span>
-      </div>
-      <div className="interCard__details">
+      </td>
+      <td className="interCard__details">
         <span>{details}</span>
-      </div>
-      <div className="interCard__user">
+      </td>
+      <td className="interCard__user">
         <span>{senderName}</span>
-      </div>
-      <div className="interCard__contact">
+      </td>
+      <td className="interCard__contact">
         <span>{senderMail}</span>
         <span>{senderPhone}</span>
-      </div>
-    </div>
+      </td>
+    </tr>
   );
 }
 

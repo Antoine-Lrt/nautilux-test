@@ -1,8 +1,11 @@
 import * as types from '../actions/types';
+import _ from 'lodash';
 
 const initialState = {
   inters: [],
-  loading: false
+  loading: false,
+  sortDirection: null,
+  sortKey: null
 };
 
 const intersReducer = (state = initialState, action) => {
@@ -27,6 +30,12 @@ const intersReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload
+      };
+    case types.SORT_BY_DATE:
+      return {
+        ...state,
+        sortKey: action.sortKey,
+        sortDirection: action.sortDirection
       };
     default:
       return state;
