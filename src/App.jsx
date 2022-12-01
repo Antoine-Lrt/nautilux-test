@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     dispatch(getInterventions());
   }, []);
+
   return (
     <div className="container">
       <Router />

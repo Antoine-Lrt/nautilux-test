@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import logo from './logo.svg';
+import logo from './logo/logo.svg';
 
 function Header() {
   return (
     <div className="navbar navbar-expand-lg navbar-light bg-light" style={styles.navbar}>
-      <Link className="navbar-brand" to={'/'} style={styles.brand}>
+      <Link className="navbar-brand" to="/" style={styles.brand}>
         <img src={logo} alt="logo" style={styles.logo} />
         Interventions
       </Link>

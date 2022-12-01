@@ -18,16 +18,17 @@ export const getInterventionsError = (error) => ({
 
 // Sort
 
-export const sortAction = () => {
-  return (dispatch) => dispatch({ type: types.SORT_INTER });
-};
+export const sortInterAsc = (inters) => ({
+  type: types.SORT_INTER_ASC,
+  payload: inters
+});
+
+export const sortInterDesc = (inters) => ({
+  type: types.SORT_INTER_DESC,
+  payload: inters
+});
 
 // Create New Intervention
-
-// export const createIntervention = (inters) => ({
-//   type: types.CREATE_INTERVENTIONS,
-//   payload: inters
-// });
 
 export const createIntervention = (inters) => ({
   type: types.CREATE_INTERVENTIONS,
