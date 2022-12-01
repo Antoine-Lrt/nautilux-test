@@ -107,17 +107,17 @@ function Form() {
           )}
         </section>
         <section className="form__element__input">
-          <label htmlFor="sender_mail" className="form__element__input__title">
+          <label htmlFor="sender_email" className="form__element__input__title">
             email
           </label>
           <input
             type="email"
             className="form__element__input__item"
             placeholder="email@domaine.fr"
-            {...register('sender_mail', { required: true })}
+            {...register('sender_email', { required: true })}
             aria-invalid={errors.sender_mail ? 'true' : 'false'}
           />
-          {errors.sender_mail?.type === 'required' && (
+          {errors.sender_email?.type === 'required' && (
             <p className="form__element__input__error" role="alert">
               Veuillez saisir une adresse email !
             </p>

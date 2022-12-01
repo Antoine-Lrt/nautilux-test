@@ -55,7 +55,7 @@ function InterventionsList({}) {
       <tr className="list__element">
         {interventions &&
           interventions.map((inter) => (
-            <Link style={{ textDecoration: 'none' }} to={`details/${inter.id}`}>
+            <Link style={{ textDecoration: 'none' }} to={`intervention/${inter.id}`}>
               <InterventionCard
                 day={getDay(inter.created_at)}
                 month={getMonth(inter.created_at)}
