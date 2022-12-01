@@ -19,7 +19,7 @@ function Form() {
     formState: { errors }
   } = useForm();
 
-  const interAmount = useSelector((state) => state.inters.length);
+  // const interAmount = useSelector((state) => state.);
 
   const formatDate = moment().format('YYYY-MM-DD HH:ss:mm');
 
@@ -28,7 +28,7 @@ function Form() {
     try {
       dispatch(
         createIntervention({
-          id: interAmount + 1,
+          // id: interAmount + 1,
           created_at: formatDate,
           name: data.name,
           description: data.description,

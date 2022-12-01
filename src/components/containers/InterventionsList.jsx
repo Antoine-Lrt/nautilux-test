@@ -1,7 +1,7 @@
 import moment from 'moment';
 import 'moment/locale/fr';
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import InterventionCard from '../InterventionsCard/InterventionCard';
 import { RiArrowUpDownLine } from 'react-icons/ri';
@@ -9,31 +9,29 @@ import './style.scss';
 
 function InterventionsList({}) {
   const interventions = useSelector((state) => state.inters);
-  console.log(interventions);
-  const [sortValue, setSortValue] = useState('');
 
   function formatDate(date) {
     const formatedDate = moment(date).local('fr').format('L HH:mm');
-    console.log('formated date id', formatedDate);
+    // console.log('formated date id', formatedDate);
     return formatedDate;
   }
 
   function getDay(date) {
     const getDay = moment(date).format('DD');
-    console.log('day', getDay);
+    // console.log('day', getDay);
     return getDay;
   }
 
   function getMonth(date) {
     const monthName = moment(date).locale('fr').format('MMM');
-    console.log('month', monthName);
+    // console.log('month', monthName);
     return monthName;
   }
 
   return (
     <table className="list">
       <tr className="list__header">
-        <th onClick={'onSortList'} className="list__header__date">
+        <th onClick={''} className="list__header__date">
           <span>Date</span>
           <span>
             <RiArrowUpDownLine size={15} />
